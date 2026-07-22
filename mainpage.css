@@ -116,3 +116,24 @@ body {
     height: 150px;
     width: 150px;
 }
+.filmlist{
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    background-color: silver;
+    overflow-x: auto;
+}
+
+.film-card {
+    flex: 0 0 300px;           /* Cố định chiều rộng mỗi ô phim là 160px (không bị ép co lại) */
+    background-color: #1f1f2e;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+} 
+.film-card img{
+    width: 100%;               /* Ảnh ôm trọn chiều rộng của film-card */
+    height: 150px;
+    object-fit: fill;
+}
