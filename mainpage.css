@@ -9,7 +9,14 @@ body {
     color: white;
     background-color: black;
 }
+.nav-links a {
+    font-weight: 500;
+    transition: color 0.3s;
+}
 
+.nav-links a:hover,.nav-links a.active {
+    color: #e50914;
+}
 .navbar {
     display: flex;
     justify-content: space-between;
