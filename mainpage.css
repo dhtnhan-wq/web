@@ -568,5 +568,53 @@ body {
 .movie-meta3 .meta-dot {
     color: #5a5a63;
 }
+.footer {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background-color: #2a2a33;
+    height: 400px;             
+    padding: 20px 80px;            
+    margin-top: 50px;               
+}
+.logo {
+    display: flex;                  
+    align-items: center;            
+    gap: 20px;
+}
+.logo-footer {
+    width: 200px;
+    height: 130px;
+    border-radius: 8px;
+}
+.happy {
+    font-size: 32px;                
+    color: #ffe604;
+    font-weight: bold;
+}
 
+.footer-info {
+    display: flex;                  
+    flex-direction: column;         
+    gap: 15px;                      
+}
 
+.contact-item {
+    display: flex;                  
+    align-items: center;
+    gap: 10px;                      
+    background-color: #1d1d24;
+    padding: 10px 20px;             
+    border-radius: 6px;
+}
+
+.contact-item i {
+    color: #ffe604;                 
+    font-size: 18px;
+}
+
+.contact-item p {
+    font-size: 15px;
+    color: #f2f0e6;
+    margin: 0;                      
+}
