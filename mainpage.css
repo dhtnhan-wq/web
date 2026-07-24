@@ -188,7 +188,14 @@ body {
     color: #fb075c;
     border-color: #f10b13;
 }
-
+.loginbtn a{
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 10px 20px;
+    color: #fb075c;
+    border-color: #f10b13;
+}
 .loginbtn:hover {
     background-color: rgb(253, 0, 0);
     color: rgb(49, 47, 47);
@@ -867,4 +874,80 @@ body {
     color: #9d9ba7;
     font-size: 12px;
     margin-top: 2px;
+}
+
+.theme-toggle-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: transform 0.2s ease;
+    color: white;
+}
+.theme-toggle-btn:hover {
+    transform: scale(1.1);
+}
+body.light-mode #themeToggleBtn {
+    color: #121212;
+}
+
+body.light-mode #themeToggleBtn:hover {
+    color: #080808;
+}
+body.light-mode {
+    background-color: #f5f5f7;
+    background-image: none;
+    color: #121212; 
+}
+body.light-mode .navbar,
+body.light-mode .side-menu,
+body.light-mode .footer,
+body.light-mode .search-suggest,
+body.light-mode .movie-modal {
+    background-color: #ffffff;
+    border-color: #e5e5e5;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+body.light-mode .search input {
+    background-color: #f0f0f0;
+    color: #121212;
+    border-color: #d1d1d1;
+}
+
+body.light-mode .movie-poster,
+body.light-mode .movie-thumb3 {
+    background-color: #e5e5e5;
+    border-color: #e5e5e5;
+}
+
+body.light-mode .movie-title,
+body.light-mode .movie-title2,
+body.light-mode .movie-title3,
+body.light-mode .movie-section-title,
+body.light-mode .banner-name h1,
+body.light-mode .side-menu-list li a,
+body.light-mode .contact-item p {
+    color: #121212;
+}
+body.light-mode .movie-title-en,
+body.light-mode .movie-title-en2,
+body.light-mode .movie-title-en3,
+body.light-mode .movie-meta3,
+body.light-mode .banner-desc p,
+body.light-mode .suggest-meta,
+body.light-mode .suggest-title-en {
+    color: #555555;
+}
+body.light-mode .movie-section-arrow,
+body.light-mode .row-arrow,
+body.light-mode .banner-arrow {
+    background-color: #ffffff;
+    color: #121212;
+    border-color: #d1d1d1;
+}
+body.light-mode .menuclose,
+body.light-mode .menutoggle {
+    color: #121212;
 }

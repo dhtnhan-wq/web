@@ -116,3 +116,24 @@ document.addEventListener('click', function(e) {
         searchSuggest.classList.remove('active');
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'light') {
+        document.body.classList.add('light-mode');
+        themeToggleBtn.innerHTML = 'Chế độ Tối '; 
+    } else {
+        themeToggleBtn.innerHTML = 'Chế độ Sáng '; 
+    }
+    themeToggleBtn.addEventListener('click', (e) => {
+        document.body.classList.toggle('light-mode');
+        if (document.body.classList.contains('light-mode')) {
+            themeToggleBtn.innerHTML = 'Chế độ Tối '; 
+            localStorage.setItem('theme', 'light');
+        } else {
+            themeToggleBtn.innerHTML = 'Chế độ Sáng '; 
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+});
