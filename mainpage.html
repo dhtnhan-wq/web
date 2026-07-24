@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FilmZ-Xem phim miễn phí</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="mainpage.css">
 </head>
 
 <body>
     <div class="navbar">
         <div class="navbar-left">
-            <button class="menutoggle">
+            <button class="menutoggle" onclick="toggleMenu()">
                 ☰
             </button>
+            <a href="mainpage.html">
             <img src="img/logo.jpg" alt="logo" class="logo">
+            </a>
         </div>
         <div class="search">
             <input type="text" id="searchbar" placeholder="Tìm kiếm phim">
@@ -25,7 +26,28 @@
             <button class="loginbtn">Đăng nhập</button>
         </div>
     </div>
+    <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+    <nav class="side-menu" id="sideMenu">
+        <div class="side-menu-header">
+            <img src="img/logo.jpg" alt="logo" class="logo">
+            <button class="menuclose" onclick="toggleMenu()">✕</button>
+        </div>
+        <ul class="side-menu-list">
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Phim lẻ</a></li>
+            <li><a href="#">Phim bộ</a></li>
+            <li><a href="#">Hoạt hình</a></li>
+            <li><a href="#">Thể loại</a></li>
+            <li><a href="#">Quốc gia</a></li>
+            <li><a href="#">Xem sau</a></li>
+        </ul>
+        <div class="logoutbtn">
+            <a href="#" >LOG OUT</a>
+        </div>
+    </nav>
     <div class="banner">
+        <button class="banner-arrow banner-arrow-left" aria-label="Phim trước"
+            onclick="changeBanner('prev')">&#10094;</button>
         <div class="banner-content">
             <div class="banner-tags-top">
                 <span class="badge">2D</span>
@@ -33,16 +55,16 @@
                 <span class="badgemeta">2026 || 2B View</span>
             </div>
             <div class="banner-name">
-                <h1>Ten phim</h1>
+                <h1 id="bannerTitle">Ten phim</h1>
             </div>
-            <div class="banner-genres">
+            <div class="banner-genres" id="bannerGenres">
                 <span>Hanh dong</span>
                 <span>Hanh dong</span>
                 <span>Hanh dong</span>
                 <span>Hanh dong</span>
             </div>
             <div class="banner-desc">
-                <p>Mo ta phim</p>
+                <p id="bannerDesc">Mo ta phim</p>
             </div>
             <div class="banner-btn">
                 <button class="playbtn">PLAY</button>
@@ -50,339 +72,402 @@
             </div>
         </div>
         <div class="banner-img">
-            <img class="bannerimg" src="img/logo.jpg">
+            <img class="bannerimg" id="bannerImg" src="img/logo.jpg">
         </div>
+        <button class="banner-arrow banner-arrow-right" aria-label="Phim tiếp theo"
+            onclick="changeBanner('next')">&#10095;</button>
     </div>
     <section class="movie-section">
         <div class="movie-section-header">
             <h2 class="movie-section-title">Phim Mới</h2>
-            <button class="movie-section-arrow" aria-label="Xem thêm"></button>
+            <button class="movie-section-arrow" aria-label="Xem thêm">></button>
         </div>
-        <div class="movie-row">
-            <article class="movie-card">
-                <a href="#" class="movie-poster">
-                    <img src="img/logo.jpg" alt="Kẻ Cắp Mặt Trăng 4: Sự Trỗi Dậy Của Gru">
-                    <span class="movie-quality">4K</span>
-                    <div class="movie-badges">
-                        <span class="badge-sub">P.Đề</span>
-                    </div>
-                </a>
-                <h3 class="movie-title">Kẻ Cắp Mặt Trăng 4: Sự Trỗi Dậy Của Gru</h3>
-                <p class="movie-title-en">Minions: The Rise Of Gru</p>
-            </article>
+        <div class="row-wrapper">
+            <button class="row-arrow row-arrow-left" aria-label="Cuộn trái"
+                onclick="scrollRow('movieRow1','prev')">&#10094;</button>
+            <div class="movie-row" id="movieRow1">
+                <article class="movie-card">
+                    <a href="#" class="movie-poster">
+                        <img src="img/logo.jpg" alt="Kẻ Cắp Mặt Trăng 4: Sự Trỗi Dậy Của Gru">
+                        <span class="movie-quality">4K</span>
+                        <div class="movie-badges">
+                            <span class="badge-sub">P.Đề</span>
+                        </div>
+                    </a>
+                    <h3 class="movie-title">Kẻ Cắp Mặt Trăng 4: Sự Trỗi Dậy Của Gru</h3>
+                    <p class="movie-title-en">Minions: The Rise Of Gru</p>
+                </article>
 
-            <article class="movie-card">
-                <a href="#" class="movie-poster">
-                    <img src="img/logo.jpg" alt="Doraemon: Nobita Và Cuộc Chiến Vũ Trụ Tí Hon">
-                    <div class="movie-badges">
-                        <span class="badge-sub">P.Đề</span>
-                        <span class="badge-dub">T.Minh</span>
-                    </div>
-                </a>
-                <h3 class="movie-title">Doraemon: Nobita Và Cuộc Chiến...</h3>
-                <p class="movie-title-en">Doraemon: Nobita no Little Wars</p>
-            </article>
+                <article class="movie-card">
+                    <a href="#" class="movie-poster">
+                        <img src="img/logo.jpg" alt="Doraemon: Nobita Và Cuộc Chiến Vũ Trụ Tí Hon">
+                        <div class="movie-badges">
+                            <span class="badge-sub">P.Đề</span>
+                            <span class="badge-dub">T.Minh</span>
+                        </div>
+                    </a>
+                    <h3 class="movie-title">Doraemon: Nobita Và Cuộc Chiến...</h3>
+                    <p class="movie-title-en">Doraemon: Nobita no Little Wars</p>
+                </article>
 
-            <article class="movie-card">
-                <a href="#" class="movie-poster">
-                    <img src="img/logo.jpg" alt="Cô Hầu Gái">
-                    <div class="movie-badges">
-                        <span class="badge-sub">P.Đề</span>
-                        <span class="badge-dub">T.Minh</span>
-                    </div>
-                </a>
-                <h3 class="movie-title">Cô Hầu Gái</h3>
-                <p class="movie-title-en">The Housemaid</p>
-            </article>
+                <article class="movie-card">
+                    <a href="#" class="movie-poster">
+                        <img src="img/logo.jpg" alt="Cô Hầu Gái">
+                        <div class="movie-badges">
+                            <span class="badge-sub">P.Đề</span>
+                            <span class="badge-dub">T.Minh</span>
+                        </div>
+                    </a>
+                    <h3 class="movie-title">Cô Hầu Gái</h3>
+                    <p class="movie-title-en">The Housemaid</p>
+                </article>
 
-            <article class="movie-card">
-                <a href="#" class="movie-poster">
-                    <img src="img/logo.jpg" alt="M3GAN">
-                    <div class="movie-badges">
-                        <span class="badge-sub">P.Đề</span>
-                    </div>
-                </a>
-                <h3 class="movie-title">M3GAN</h3>
-                <p class="movie-title-en">M3GAN</p>
-            </article>
-            <article class="movie-card">
-                <a href="#" class="movie-poster">
-                    <img src="img/logo.jpg" alt="Hành Tinh Cát: Phần Hai">
-                    <span class="movie-quality">4K</span>
-                    <div class="movie-badges">
-                        <span class="badge-sub">P.Đề</span>
-                    </div>
-                </a>
-                <h3 class="movie-title">Hành Tinh Cát: Phần Hai</h3>
-                <p class="movie-title-en">Dune: Part Two</p>
-            </article>
+                <article class="movie-card">
+                    <a href="#" class="movie-poster">
+                        <img src="img/logo.jpg" alt="M3GAN">
+                        <div class="movie-badges">
+                            <span class="badge-sub">P.Đề</span>
+                        </div>
+                    </a>
+                    <h3 class="movie-title">M3GAN</h3>
+                    <p class="movie-title-en">M3GAN</p>
+                </article>
+                <article class="movie-card">
+                    <a href="#" class="movie-poster">
+                        <img src="img/logo.jpg" alt="Hành Tinh Cát: Phần Hai">
+                        <span class="movie-quality">4K</span>
+                        <div class="movie-badges">
+                            <span class="badge-sub">P.Đề</span>
+                        </div>
+                    </a>
+                    <h3 class="movie-title">Hành Tinh Cát: Phần Hai</h3>
+                    <p class="movie-title-en">Dune: Part Two</p>
+                </article>
 
-            <article class="movie-card">
-                <a href="#" class="movie-poster">
-                    <img src="img/logo.jpg" alt="Điện Thoại Đen">
-                    <div class="movie-badges">
-                        <span class="badge-sub">P.Đề</span>
-                    </div>
-                </a>
-                <h3 class="movie-title">Điện Thoại Đen</h3>
-                <p class="movie-title-en">The Black Phone</p>
-            </article>
+                <article class="movie-card">
+                    <a href="#" class="movie-poster">
+                        <img src="img/logo.jpg" alt="Điện Thoại Đen">
+                        <div class="movie-badges">
+                            <span class="badge-sub">P.Đề</span>
+                        </div>
+                    </a>
+                    <h3 class="movie-title">Điện Thoại Đen</h3>
+                    <p class="movie-title-en">The Black Phone</p>
+                </article>
 
-            <article class="movie-card">
-                <a href="#" class="movie-poster">
-                    <img src="img/logo.jpg" alt="Giao Hàng Cho Ma">
-                    <div class="movie-badges">
-                        <span class="badge-sub">P.Đề</span>
-                    </div>
-                </a>
-                <h3 class="movie-title">Giao Hàng Cho Ma</h3>
-                <p class="movie-title-en">Rider: Ghost Delivery</p>
-            </article>
+                <article class="movie-card">
+                    <a href="#" class="movie-poster">
+                        <img src="img/logo.jpg" alt="Giao Hàng Cho Ma">
+                        <div class="movie-badges">
+                            <span class="badge-sub">P.Đề</span>
+                        </div>
+                    </a>
+                    <h3 class="movie-title">Giao Hàng Cho Ma</h3>
+                    <p class="movie-title-en">Rider: Ghost Delivery</p>
+                </article>
+                <article class="movie-card">
+                    <a href="#" class="movie-poster">
+                        <img src="img/logo.jpg" alt="Giao Hàng Cho Ma">
+                        <div class="movie-badges">
+                            <span class="badge-sub">P.Đề</span>
+                        </div>
+                    </a>
+                    <h3 class="movie-title">Giao Hàng Cho Ma</h3>
+                    <p class="movie-title-en">Rider: Ghost Delivery</p>
+                </article>
+                <article class="movie-card">
+                    <a href="#" class="movie-poster">
+                        <img src="img/logo.jpg" alt="Giao Hàng Cho Ma">
+                        <div class="movie-badges">
+                            <span class="badge-sub">P.Đề</span>
+                        </div>
+                    </a>
+                    <h3 class="movie-title">Giao Hàng Cho Ma</h3>
+                    <p class="movie-title-en">Rider: Ghost Delivery</p>
+                </article>
+                <article class="movie-card">
+                    <a href="#" class="movie-poster">
+                        <img src="img/logo.jpg" alt="Giao Hàng Cho Ma">
+                        <div class="movie-badges">
+                            <span class="badge-sub">P.Đề</span>
+                        </div>
+                    </a>
+                    <h3 class="movie-title">Giao Hàng Cho Ma</h3>
+                    <p class="movie-title-en">Rider: Ghost Delivery</p>
+                </article>
+                <article class="movie-card">
+                    <a href="#" class="movie-poster">
+                        <img src="img/logo.jpg" alt="Giao Hàng Cho Ma">
+                        <div class="movie-badges">
+                            <span class="badge-sub">P.Đề</span>
+                        </div>
+                    </a>
+                    <h3 class="movie-title">Giao Hàng Cho Ma</h3>
+                    <p class="movie-title-en">Rider: Ghost Delivery</p>
+                </article>
+
+            </div>
+            <button class="row-arrow row-arrow-right" aria-label="Cuộn phải"
+                onclick="scrollRow('movieRow1','next')">&#10095;</button>
         </div>
     </section>
     <!-- selection2 -->
     <section class="movie-section2">
         <div class="movie-section-header">
             <h2 class="movie-section-title">Phim Cũ</h2>
-            <button class="movie-section-arrow" aria-label="Xem thêm"></button>
+            <button class="movie-section-arrow" aria-label="Xem thêm">></button>
         </div>
-        <div class="movie-row2">
-            <article class="movie-card2">
-                <a href="#" class="movie-poster2">
-                    <img src="img/logo.jpg" alt="Kẻ Cắp Mặt Trăng 4: Sự Trỗi Dậy Của Gru">
-                </a>
-                <div class="movie-info2">
-                    <h3 class="movie-title2">Kẻ Cắp Mặt Trăng 4: Sự Trỗi Dậy Của Gru</h3>
-                    <p class="movie-title-en2">Minions: The Rise Of Gru</p>
-                    <div class="movie-badges2">
-                        <span class="badge-sub">P.Đề</span>
-                        <span class="movie-quality2">4K</span>
+        <div class="row-wrapper">
+            <button class="row-arrow row-arrow-left" aria-label="Cuộn trái"
+                onclick="scrollRow('movieRow2','prev')">&#10094;</button>
+            <div class="movie-row2" id="movieRow2">
+                <article class="movie-card2">
+                    <a href="#" class="movie-poster2">
+                        <img src="img/logo.jpg" alt="Kẻ Cắp Mặt Trăng 4: Sự Trỗi Dậy Của Gru">
+                    </a>
+                    <div class="movie-info2">
+                        <h3 class="movie-title2">Kẻ Cắp Mặt Trăng 4: Sự Trỗi Dậy Của Gru</h3>
+                        <p class="movie-title-en2">Minions: The Rise Of Gru</p>
+                        <div class="movie-badges2">
+                            <span class="badge-sub">P.Đề</span>
+                            <span class="movie-quality2">4K</span>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="movie-card2">
-                <a href="#" class="movie-poster2">
-                    <img src="img/logo.jpg" alt="Doraemon: Nobita Và Cuộc Chiến Vũ Trụ Tí Hon">
-                </a>
-                <div class="movie-info2">
-                    <h3 class="movie-title2">Doraemon: Nobita Và Cuộc Chiến...</h3>
-                    <p class="movie-title-en2">Doraemon: Nobita no Little Wars</p>
-                    <div class="movie-badges2">
-                        <span class="badge-sub">P.Đề</span>
-                        <span class="badge-dub">T.Minh</span>
+                <article class="movie-card2">
+                    <a href="#" class="movie-poster2">
+                        <img src="img/logo.jpg" alt="Doraemon: Nobita Và Cuộc Chiến Vũ Trụ Tí Hon">
+                    </a>
+                    <div class="movie-info2">
+                        <h3 class="movie-title2">Doraemon: Nobita Và Cuộc Chiến...</h3>
+                        <p class="movie-title-en2">Doraemon: Nobita no Little Wars</p>
+                        <div class="movie-badges2">
+                            <span class="badge-sub">P.Đề</span>
+                            <span class="badge-dub">T.Minh</span>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="movie-card2">
-                <a href="#" class="movie-poster2">
-                    <img src="img/logo.jpg" alt="Cô Hầu Gái">
-                </a>
-                <div class="movie-info2">
-                    <h3 class="movie-title2">Cô Hầu Gái</h3>
-                    <p class="movie-title-en2">The Housemaid</p>
-                    <div class="movie-badges2">
-                        <span class="badge-sub">P.Đề</span>
-                        <span class="badge-dub">T.Minh</span>
+                <article class="movie-card2">
+                    <a href="#" class="movie-poster2">
+                        <img src="img/logo.jpg" alt="Cô Hầu Gái">
+                    </a>
+                    <div class="movie-info2">
+                        <h3 class="movie-title2">Cô Hầu Gái</h3>
+                        <p class="movie-title-en2">The Housemaid</p>
+                        <div class="movie-badges2">
+                            <span class="badge-sub">P.Đề</span>
+                            <span class="badge-dub">T.Minh</span>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="movie-card2">
-                <a href="#" class="movie-poster2">
-                    <img src="img/logo.jpg" alt="M3GAN">
-                </a>
-                <div class="movie-info2">
-                    <h3 class="movie-title2">M3GAN</h3>
-                    <p class="movie-title-en2">M3GAN</p>
-                    <div class="movie-badges2">
-                        <span class="badge-sub">P.Đề</span>
+                <article class="movie-card2">
+                    <a href="#" class="movie-poster2">
+                        <img src="img/logo.jpg" alt="M3GAN">
+                    </a>
+                    <div class="movie-info2">
+                        <h3 class="movie-title2">M3GAN</h3>
+                        <p class="movie-title-en2">M3GAN</p>
+                        <div class="movie-badges2">
+                            <span class="badge-sub">P.Đề</span>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="movie-card2">
-                <a href="#" class="movie-poster2">
-                    <img src="img/logo.jpg" alt="Hành Tinh Cát: Phần Hai">
-                </a>
-                <div class="movie-info2">
-                    <h3 class="movie-title2">Hành Tinh Cát: Phần Hai</h3>
-                    <p class="movie-title-en2">Dune: Part Two</p>
-                    <div class="movie-badges2">
-                        <span class="badge-sub">P.Đề</span>
+                <article class="movie-card2">
+                    <a href="#" class="movie-poster2">
+                        <img src="img/logo.jpg" alt="Hành Tinh Cát: Phần Hai">
+                    </a>
+                    <div class="movie-info2">
+                        <h3 class="movie-title2">Hành Tinh Cát: Phần Hai</h3>
+                        <p class="movie-title-en2">Dune: Part Two</p>
+                        <div class="movie-badges2">
+                            <span class="badge-sub">P.Đề</span>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="movie-card2">
-                <a href="#" class="movie-poster2">
-                    <img src="img/logo.jpg" alt="Điện Thoại Đen">
-                </a>
-                <div class="movie-info2">
-                    <h3 class="movie-title2">Điện Thoại Đen</h3>
-                    <p class="movie-title-en2">The Black Phone</p>
-                    <div class="movie-badges2">
-                        <span class="badge-sub">P.Đề</span>
+                <article class="movie-card2">
+                    <a href="#" class="movie-poster2">
+                        <img src="img/logo.jpg" alt="Điện Thoại Đen">
+                    </a>
+                    <div class="movie-info2">
+                        <h3 class="movie-title2">Điện Thoại Đen</h3>
+                        <p class="movie-title-en2">The Black Phone</p>
+                        <div class="movie-badges2">
+                            <span class="badge-sub">P.Đề</span>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="movie-card2">
-                <a href="#" class="movie-poster2">
-                    <img src="img/logo.jpg" alt="Giao Hàng Cho Ma">
-                </a>
-                <div class="movie-info2">
-                    <h3 class="movie-title2">Giao Hàng Cho Ma</h3>
-                    <p class="movie-title-en2">Rider: Ghost Delivery</p>
-                    <div class="movie-badges2">
-                        <span class="badge-sub">P.Đề</span>
+                <article class="movie-card2">
+                    <a href="#" class="movie-poster2">
+                        <img src="img/logo.jpg" alt="Giao Hàng Cho Ma">
+                    </a>
+                    <div class="movie-info2">
+                        <h3 class="movie-title2">Giao Hàng Cho Ma</h3>
+                        <p class="movie-title-en2">Rider: Ghost Delivery</p>
+                        <div class="movie-badges2">
+                            <span class="badge-sub">P.Đề</span>
+                        </div>
                     </div>
-                </div>
-            </article>
+                </article>
+            </div>
+            <button class="row-arrow row-arrow-right" aria-label="Cuộn phải"
+                onclick="scrollRow('movieRow2','next')">&#10095;</button>
         </div>
     </section>
     <!-- selection3 -->
-  <section class="movie-section3">
+    <section class="movie-section3">
         <div class="movie-section-header">
             <h2 class="movie-section-title">Mãn Nhãn Với Phim Chiếu Rạp</h2>
-            <button class="movie-section-arrow" aria-label="Xem thêm">›</button>
+            <button class="movie-section-arrow" aria-label="Xem thêm">></button>
         </div>
-        <div class="movie-row3">
-            <article class="movie-card3">
-                <a href="#" class="movie-poster3">
-                    <img src="img/logo.jpg" alt="Yêu Lại Vợ Ngầu">
-                </a>
-                <div class="movie-info3">
-                    <a href="#" class="movie-thumb3">
+        <div class="row-wrapper">
+            <button class="row-arrow row-arrow-left" aria-label="Cuộn trái"
+                onclick="scrollRow('movieRow3','prev')">&#10094;</button>
+            <div class="movie-row3" id="movieRow3">
+                <article class="movie-card3">
+                    <a href="#" class="movie-poster3">
                         <img src="img/logo.jpg" alt="Yêu Lại Vợ Ngầu">
-                        <span class="badge-sub">P.Đề</span>
                     </a>
-                    <div class="movie-text3">
-                        <h3 class="movie-title3">Yêu Lại Vợ Ngầu</h3>
-                        <p class="movie-title-en3">Love Reset</p>
-                        <div class="movie-meta3">
-                            <span class="meta-age">T16</span>
-                            <span class="meta-dot">•</span>
-                            <span>2023</span>
-                            <span class="meta-dot">•</span>
-                            <span>1h 59m</span>
+                    <div class="movie-info3">
+                        <a href="#" class="movie-thumb3">
+                            <img src="img/logo.jpg" alt="Yêu Lại Vợ Ngầu">
+                            <span class="badge-sub">P.Đề</span>
+                        </a>
+                        <div class="movie-text3">
+                            <h3 class="movie-title3">Yêu Lại Vợ Ngầu</h3>
+                            <p class="movie-title-en3">Love Reset</p>
+                            <div class="movie-meta3">
+                                <span class="meta-age">T16</span>
+                                <span class="meta-dot">•</span>
+                                <span>2023</span>
+                                <span class="meta-dot">•</span>
+                                <span>1h 59m</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="movie-card3">
-                <a href="#" class="movie-poster3">
-                    <img src="img/logo.jpg" alt="28 Năm Sau: Hậu Tận Thế">
-                </a>
-                <div class="movie-info3">
-                    <a href="#" class="movie-thumb3">
+                <article class="movie-card3">
+                    <a href="#" class="movie-poster3">
                         <img src="img/logo.jpg" alt="28 Năm Sau: Hậu Tận Thế">
-                        <span class="badge-sub">P.Đề</span>
                     </a>
-                    <div class="movie-text3">
-                        <h3 class="movie-title3">28 Năm Sau: Hậu Tận Thế</h3>
-                        <p class="movie-title-en3">28 Years Later</p>
-                        <div class="movie-meta3">
-                            <span class="meta-age">T16</span>
-                            <span class="meta-dot">•</span>
-                            <span>2025</span>
-                            <span class="meta-dot">•</span>
-                            <span>1h 55m</span>
+                    <div class="movie-info3">
+                        <a href="#" class="movie-thumb3">
+                            <img src="img/logo.jpg" alt="28 Năm Sau: Hậu Tận Thế">
+                            <span class="badge-sub">P.Đề</span>
+                        </a>
+                        <div class="movie-text3">
+                            <h3 class="movie-title3">28 Năm Sau: Hậu Tận Thế</h3>
+                            <p class="movie-title-en3">28 Years Later</p>
+                            <div class="movie-meta3">
+                                <span class="meta-age">T16</span>
+                                <span class="meta-dot">•</span>
+                                <span>2025</span>
+                                <span class="meta-dot">•</span>
+                                <span>1h 55m</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </article>
+                </article>
 
-            <article class="movie-card3">
-                <a href="#" class="movie-poster3">
-                    <img src="img/logo.jpg" alt="Khắc Tinh Của Quỷ">
-                </a>
-                <div class="movie-info3">
-                    <a href="#" class="movie-thumb3">
+                <article class="movie-card3">
+                    <a href="#" class="movie-poster3">
                         <img src="img/logo.jpg" alt="Khắc Tinh Của Quỷ">
-                        <span class="badge-sub">P.Đề</span>
                     </a>
-                    <div class="movie-text3">
-                        <h3 class="movie-title3">Khắc Tinh Của Quỷ</h3>
-                        <p class="movie-title-en3">The Pope's Exorcist</p>
-                        <div class="movie-meta3">
-                            <span class="meta-age">T16</span>
-                            <span class="meta-dot">•</span>
-                            <span>2023</span>
-                            <span class="meta-dot">•</span>
-                            <span>1h 43m</span>
+                    <div class="movie-info3">
+                        <a href="#" class="movie-thumb3">
+                            <img src="img/logo.jpg" alt="Khắc Tinh Của Quỷ">
+                            <span class="badge-sub">P.Đề</span>
+                        </a>
+                        <div class="movie-text3">
+                            <h3 class="movie-title3">Khắc Tinh Của Quỷ</h3>
+                            <p class="movie-title-en3">The Pope's Exorcist</p>
+                            <div class="movie-meta3">
+                                <span class="meta-age">T16</span>
+                                <span class="meta-dot">•</span>
+                                <span>2023</span>
+                                <span class="meta-dot">•</span>
+                                <span>1h 43m</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </article>
-             <article class="movie-card3">
-                <a href="#" class="movie-poster3">
-                    <img src="img/logo.jpg" alt="Khắc Tinh Của Quỷ">
-                </a>
-                <div class="movie-info3">
-                    <a href="#" class="movie-thumb3">
+                </article>
+                <article class="movie-card3">
+                    <a href="#" class="movie-poster3">
                         <img src="img/logo.jpg" alt="Khắc Tinh Của Quỷ">
-                        <span class="badge-sub">P.Đề</span>
                     </a>
-                    <div class="movie-text3">
-                        <h3 class="movie-title3">Khắc Tinh Của Quỷ</h3>
-                        <p class="movie-title-en3">The Pope's Exorcist</p>
-                        <div class="movie-meta3">
-                            <span class="meta-age">T16</span>
-                            <span class="meta-dot">•</span>
-                            <span>2023</span>
-                            <span class="meta-dot">•</span>
-                            <span>1h 43m</span>
+                    <div class="movie-info3">
+                        <a href="#" class="movie-thumb3">
+                            <img src="img/logo.jpg" alt="Khắc Tinh Của Quỷ">
+                            <span class="badge-sub">P.Đề</span>
+                        </a>
+                        <div class="movie-text3">
+                            <h3 class="movie-title3">Khắc Tinh Của Quỷ</h3>
+                            <p class="movie-title-en3">The Pope's Exorcist</p>
+                            <div class="movie-meta3">
+                                <span class="meta-age">T16</span>
+                                <span class="meta-dot">•</span>
+                                <span>2023</span>
+                                <span class="meta-dot">•</span>
+                                <span>1h 43m</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </article>
-             <article class="movie-card3">
-                <a href="#" class="movie-poster3">
-                    <img src="img/logo.jpg" alt="Khắc Tinh Của Quỷ">
-                </a>
-                <div class="movie-info3">
-                    <a href="#" class="movie-thumb3">
+                </article>
+                <article class="movie-card3">
+                    <a href="#" class="movie-poster3">
                         <img src="img/logo.jpg" alt="Khắc Tinh Của Quỷ">
-                        <span class="badge-sub">P.Đề</span>
                     </a>
-                    <div class="movie-text3">
-                        <h3 class="movie-title3">Khắc Tinh Của Quỷ</h3>
-                        <p class="movie-title-en3">The Pope's Exorcist</p>
-                        <div class="movie-meta3">
-                            <span class="meta-age">T16</span>
-                            <span class="meta-dot">•</span>
-                            <span>2023</span>
-                            <span class="meta-dot">•</span>
-                            <span>1h 43m</span>
+                    <div class="movie-info3">
+                        <a href="#" class="movie-thumb3">
+                            <img src="img/logo.jpg" alt="Khắc Tinh Của Quỷ">
+                            <span class="badge-sub">P.Đề</span>
+                        </a>
+                        <div class="movie-text3">
+                            <h3 class="movie-title3">Khắc Tinh Của Quỷ</h3>
+                            <p class="movie-title-en3">The Pope's Exorcist</p>
+                            <div class="movie-meta3">
+                                <span class="meta-age">T16</span>
+                                <span class="meta-dot">•</span>
+                                <span>2023</span>
+                                <span class="meta-dot">•</span>
+                                <span>1h 43m</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </article>
+                </article>
+            </div>
+            <button class="row-arrow row-arrow-right" aria-label="Cuộn phải"
+                onclick="scrollRow('movieRow3','next')">&#10095;</button>
         </div>
     </section>
-        <div class="footer">
-            <div class="logo">
-                <img src="img/Logo_Đại_học_Mở_TPHCM.png" alt="" class="logo-footer">
-            </div>
-            <div class="footer-info">
-                <div class="contact-item">
-                    <i class="fa-solid fa-envelope"></i>
-                    <p>5anhem@gmail.com</p>
-                </div>
-                <div class="contact-item">
-                    <i class="fa-solid fa-mobile-screen-button"></i>
-                    <p>0293044947</p>
-                </div>
-                <div class="contact-item">
-                    <i class="fa-brands fa-github"></i>
-                    <p>dht-nhan-wp</p>
-                </div>
-            </div>
-            <span class="happy">Chúc mọi người xem vui vẻ</span>
+    <div class="footer">
+        <div class="logo">
+            <img src="img/Logo_Đại_học_Mở_TPHCM.png" alt="" class="logo-footer">
         </div>
+        <div class="footer-info">
+            <div class="contact-item">
+                <i class="fa-solid fa-envelope"></i>
+                <p>5anhem@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <p>0293044947</p>
+            </div>
+            <div class="contact-item">
+                <i class="fa-brands fa-github"></i>
+                <p>dht-nhan-wp</p>
+            </div>
+        </div>
+        <span class="happy">Chúc mọi người xem vui vẻ</span>
+    </div>
+
+    <script src="mainpage.js"></script>
 </body>
 
 </html>
