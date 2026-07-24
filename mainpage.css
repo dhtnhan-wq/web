@@ -951,3 +951,33 @@ body.light-mode .menuclose,
 body.light-mode .menutoggle {
     color: #121212;
 }
+.loginbtn{
+    animation: vien 1s infinite ;
+
+}
+@keyframes vien {
+        0% {
+          border-color: #0056b3;
+          color: #0056b3;
+        }
+        20% {
+          border-color: red;
+          color: red;
+        }
+        40% {
+          border-color: yellow;
+          color: yellow;
+        }
+        60% {
+          border-color: #59bdbd;
+          color: #59bdbd;
+        }
+        80% {
+          border-color: blueviolet;
+          color: blueviolet;
+        }
+        100% {
+          border-color: #48d315;
+          color: #48d315;
+        }
+    }

@@ -2,12 +2,6 @@ function toggleMenu(){
     document.getElementById('sideMenu').classList.toggle('active')
     document.getElementById('menuOverlay').classList.toggle('active')
 }
-
-
-
-
-
-
 function scrollRow(rowId, direction) {
     const row = document.getElementById(rowId);
     if (!row) return;
@@ -57,16 +51,26 @@ function changeBanner(direction) {
 
 
 const moviesData = [
-    { id: 1, img: "img/logo.jpg", title: "Kẻ Cắp Mặt Trăng 4: Sự Trỗi Dậy Của Gru", titleEn: "Minions: The Rise Of Gru", quality: "4K", dub: false, age: "P", year: "2024", duration: "1h 34m" },
-    { id: 2, img: "img/logo.jpg", title: "Doraemon: Nobita Và Cuộc Chiến...", titleEn: "Doraemon: Nobita no Little Wars", dub: true, age: "P", year: "2021", duration: "1h 51m" },
-    { id: 3, img: "img/logo.jpg", title: "Cô Hầu Gái", titleEn: "The Housemaid", dub: true, age: "T18", year: "2025", duration: "1h 33m" },
-    { id: 4, img: "img/logo.jpg", title: "M3GAN", titleEn: "M3GAN", dub: false, age: "T16", year: "2023", duration: "1h 42m" },
-    { id: 5, img: "img/logo.jpg", title: "Hành Tinh Cát: Phần Hai", titleEn: "Dune: Part Two", quality: "4K", dub: false, age: "T13", year: "2024", duration: "2h 46m" },
-    { id: 6, img: "img/logo.jpg", title: "Điện Thoại Đen", titleEn: "The Black Phone", dub: false, age: "T18", year: "2022", duration: "1h 42m" },
-    { id: 7, img: "img/logo.jpg", title: "Giao Hàng Cho Ma", titleEn: "Rider: Ghost Delivery", dub: false, age: "T13", year: "2024", duration: "1h 40m" },
+    { id: 1, img: "img/logo.jpg", title: "Minions: Sự Trỗi Dậy Của Gru", titleEn: "Minions: The Rise Of Gru", quality: "4K", dub: true, age: "P", year: "2022", duration: "1h 27m" },
+    { id: 2, img: "img/logo.jpg", title: "Doraemon: Nobita Và Cuộc Chiến Vũ Trụ Nhỏ", titleEn: "Doraemon: Nobita's Little Star Wars 2021", dub: true, age: "P", year: "2022", duration: "1h 51m" },
+    { id: 3, img: "img/logo.jpg", title: "Cô Hầu Gái", titleEn: "The Housemaid", dub: false, age: "T18", year: "2025", duration: "2h 11m" },
+    { id: 4, img: "img/megan.jpg", title: "M3GAN", titleEn: "M3GAN", dub: false, age: "T16", year: "2023", duration: "1h 42m" },
+    { id: 5, img: "img/dune.jpg", title: "Hành Tinh Cát: Phần Hai", titleEn: "Dune: Part Two", quality: "4K", dub: false, age: "T13", year: "2024", duration: "2h 46m" },
+    { id: 6, img: "img/blackphone.jpg", title: "Điện Thoại Đen", titleEn: "The Black Phone", dub: false, age: "T18", year: "2022", duration: "1h 42m" },
+    { id: 7, img: "img/logo.jpg", title: "Rider: Giao Hàng Cho Ma", titleEn: "Rider: Ghost Delivery", dub: true, age: "T13", year: "2025", duration: "1h 45m" },
     { id: 8, img: "img/logo.jpg", title: "Yêu Lại Vợ Ngầu", titleEn: "Love Reset", dub: false, age: "T16", year: "2023", duration: "1h 59m" },
-    { id: 9, img: "img/logo.jpg", title: "28 Năm Sau: Hậu Tận Thế", titleEn: "28 Years Later", dub: false, age: "T16", year: "2025", duration: "1h 55m" },
-    { id: 10, img: "img/logo.jpg", title: "Khắc Tinh Của Quỷ", titleEn: "The Pope's Exorcist", dub: false, age: "T16", year: "2023", duration: "1h 43m" }
+    { id: 9, img: "img/2y.jpg", title: "28 Năm Sau: Hậu Tận Thế", titleEn: "28 Years Later", dub: false, age: "T16", year: "2025", duration: "1h 55m" },
+    { id: 10, img: "img/khactinh.jpg", title: "Khắc Tinh Của Quỷ", titleEn: "The Pope's Exorcist", dub: false, age: "T16", year: "2023", duration: "1h 43m" },
+    { id: 11, img: "img/open.jpg", title: "Oppenheimer", titleEn: "Oppenheimer", quality: "4K", dub: false, age: "T16", year: "2023", duration: "3h 00m" },
+    { id: 12, img: "img/logo.jpg", title: "Gọi Hồn Quỷ Dữ", titleEn: "Talk to Me", dub: false, age: "T18", year: "2023", duration: "1h 33m" },
+    { id: 13, img: "img/evan.jpg", title: "Neon Genesis Evangelion", titleEn: "Neon Genesis Evangelion", dub: false, age: "T16", year: "1995", duration: "24 tập" },
+    { id: 14, img: "img/kimetsu.jpg", title: "Thanh Gươm Diệt Quỷ", titleEn: "Demon Slayer: Kimetsu no Yaiba", dub: true, age: "T16", year: "2019", duration: "26 tập" },
+    { id: 15, img: "img/tanya.jpg", title: "Tanya Chiến Ký", titleEn: "Saga of Tanya the Evil", dub: false, age: "T16", year: "2017", duration: "12 tập" },
+    { id: 16, img: "img/dananronpa.jpg", title: "Học Viện Hi Vọng và Học Sinh Tuyệt Vọng", titleEn: "Danganronpa: The Animation", dub: false, age: "T16", year: "2013", duration: "13 tập" },
+    { id: 17, img: "img/logo.jpg", title: "Trò Chơi Tình Bạn", titleEn: "Tomodachi Game", dub: false, age: "T16", year: "2022", duration: "12 tập" },
+    { id: 18, img: "img/diary.jpg", title: "Nhật Ký Tương Lai", titleEn: "Future Diary", dub: false, age: "T18", year: "2011", duration: "26 tập" },
+    { id: 19, img: "img/dexter.jpg", title: "Đồ Tể Vùng Vịnh", titleEn: "Dexter", dub: false, age: "T18", year: "2006", duration: "8 mùa" },
+    { id: 20, img: "img/green.jpg", title: "Dặm Xanh", titleEn: "The Green Mile", dub: false, age: "T18", year: "1999", duration: "3h 09m" }
 ];
 
 const searchInput = document.getElementById("searchbar");
@@ -107,10 +111,8 @@ searchInput.addEventListener('input', function() {
             </a>
         `).join('');
     }
-
     searchSuggest.classList.add('active');
 });
-
 document.addEventListener('click', function(e) {
     if (!e.target.closest('.search')) {
         searchSuggest.classList.remove('active');
