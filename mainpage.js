@@ -14,30 +14,44 @@ function scrollRow(rowId, direction) {
 
 const bannerData = [
     {
-        img: "img/logo.jpg",
+        img: "img/fightclub.jpg",
         title: "Fight Club",
         genres: ["Drama", "Tam ly"],
         desc: "Fight Club (1999) là một bộ phim tâm lý ly kỳ giật gân, đan xen yếu tố châm biếm đen tối do David Fincher đạo diễn, dựa trên tiểu thuyết cùng tên của Chuck Palahniuk."
     },
     {
-        img: "img/logo.jpg",
+        img: "img/theboys.jpg",
         title: "The Boys",
         genres: ["Hài đen", "Hành động"],
-        desc: "Mo ta phim thu hai"
+        desc: "“Siêu anh hùng là những người sử dụng sức mạnh của mình để giải cứu Trái Đất và mang lại bình yên cho nhân loại” "
     },
     {
-        img: "img/logo.jpg",
-        title: "Phim Thu Ba",
-        genres: ["Hai", "Lang man"],
-        desc: "Mo ta phim thu ba"
+        img: "img/spiderman.jpg",
+        title: "Spider-Man",
+        genres: ["Sieu anh hung", "Hanh dong"],
+        desc: "Không còn Tony Stark, MJ hay Ned kề cận, Peter buộc phải đơn thân độc mã đối diện với phe đối đầu bí ẩn."
+    },
+    {
+        img: "img/break.jpg",
+        title: "Breaking Bad",
+        genres: ["Toi pham", "Hai kich den"],
+        desc: "Trong mùa cuối, cái xấu không còn chỉ là một hành động khi vòng xoáy biến chất đưa Walt trở thành ông trùm của một đế chế ma túy, đe dọa mọi thứ và mọi người."
     }
 ];
 let bannerIndex = 0;
 
 function changeBanner(direction) {
-    bannerIndex = direction === 'next'
-        ? (bannerIndex + 1) % bannerData.length
-        : (bannerIndex - 1 + bannerData.length) % bannerData.length;
+   if (direction === 'next') {
+        bannerIndex += 1;
+        if (bannerIndex >= bannerData.length) {
+            bannerIndex = 0;
+        }
+    } else {
+        bannerIndex -= 1;
+        if (bannerIndex < 0) {
+            bannerIndex = bannerData.length - 1;
+        }
+    }
 
     const data = bannerData[bannerIndex];
     document.getElementById('bannerTitle').textContent = data.title;
@@ -119,7 +133,6 @@ document.addEventListener('click', function(e) {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'light') {
@@ -138,4 +151,3 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('theme', 'dark');
         }
     });
-});
