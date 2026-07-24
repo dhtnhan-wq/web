@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FilmZ-Xem phim miễn phí</title>
     <link rel="stylesheet" href="mainpage.css">
-    <script src="mainpage.js"></script>
+
 </head>
 
 <body>
@@ -16,12 +16,13 @@
                 ☰
             </button>
             <a href="mainpage.html">
-            <img src="img/logo.jpg" alt="logo" class="logo">
+                <img src="img/logo.jpg" alt="logo" class="logo">
             </a>
         </div>
         <div class="search">
             <input type="text" id="searchbar" placeholder="Tìm kiếm phim">
             <span class="searchicon">🔍</span>
+            <div class="search-suggest" id="searchSuggest"></div>
         </div>
         <div class="login">
             <button class="loginbtn">Đăng nhập</button>
@@ -43,7 +44,7 @@
             <li><a href="#">Xem sau</a></li>
         </ul>
         <div class="logoutbtn">
-            <a href="#" >LOG OUT</a>
+            <a href="#">LOG OUT</a>
         </div>
     </nav>
     <div class="banner">
@@ -468,7 +469,7 @@
         <span class="happy">Chúc mọi người xem vui vẻ</span>
     </div>
 
-    
+    <script src="mainpage.js"></script>
 </body>
 
 </html>

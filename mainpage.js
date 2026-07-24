@@ -68,3 +68,51 @@ const moviesData = [
     { id: 9, img: "img/logo.jpg", title: "28 Năm Sau: Hậu Tận Thế", titleEn: "28 Years Later", dub: false, age: "T16", year: "2025", duration: "1h 55m" },
     { id: 10, img: "img/logo.jpg", title: "Khắc Tinh Của Quỷ", titleEn: "The Pope's Exorcist", dub: false, age: "T16", year: "2023", duration: "1h 43m" }
 ];
+
+const searchInput = document.getElementById("searchbar");
+const searchSuggest = document.getElementById("searchSuggest");
+
+searchInput.addEventListener('input', function() {
+
+    var key = searchInput.value.toLowerCase().trim();
+
+    if (key === '') {
+        searchSuggest.classList.remove('active');
+        searchSuggest.innerHTML = '';
+        return;
+    }
+
+    var res = [];
+    for (var i = 0; i < moviesData.length; i++) {
+        var movie = moviesData[i];
+        var title = movie.title.toLowerCase();
+        var titleEn = movie.titleEn.toLowerCase();
+
+        if (title.indexOf(key) !== -1 || titleEn.indexOf(key) !== -1) {
+            res.push(movie);
+        }
+    }
+
+    if (res.length === 0) {
+        searchSuggest.innerHTML = `<p style="padding:14px;color:#9d9ba7;">Không tìm thấy phim nào</p>`;
+    } else {
+        searchSuggest.innerHTML = res.map(movie => `
+            <a href="#" class="suggest-item">
+                <img src="${movie.img}" alt="${movie.title}">
+                <div>
+                    <div class="suggest-title">${movie.title}</div>
+                    <div class="suggest-title-en">${movie.titleEn}</div>
+                    <div class="suggest-meta">${movie.age} • ${movie.year} • ${movie.duration || ''}</div>
+                </div>
+            </a>
+        `).join('');
+    }
+
+    searchSuggest.classList.add('active');
+});
+
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.search')) {
+        searchSuggest.classList.remove('active');
+    }
+});
