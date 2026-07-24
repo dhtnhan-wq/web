@@ -83,6 +83,10 @@
       .footer a:hover {
         text-decoration: underline;
       }
+      #link {
+        text-decoration: none;
+        color: white;
+      }
       @keyframes vien {
         0% {
           border-color: #0056b3;
@@ -136,14 +140,16 @@
 
       <div class="input-group">
         <label>Email</label>
-        <input type="text" placeholder="Tên đăng nhập" />
+        <input type="email" placeholder="Tên đăng nhập" />
       </div>
 
       <div class="input-group">
         <label>Password</label>
         <input type="password" placeholder="Password" />
       </div>
-      <button type="submit">Login</button>
+      <button type="submit">
+        <a id="link" href="mainpage.html" target="_blank">Login</a>
+      </button>
       <div class="footer">
         <p>Don't have an account? <a href="#">Sign up</a></p>
       </div>
